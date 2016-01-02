@@ -11,16 +11,15 @@ public class PrimeWorker implements Runnable {
 	public void run() {
 		//Output result of the work
 		if(isPrime(this.num))
-			System.out.println(num + " is prime!");
+			System.out.println(this.num + " is prime!");
 		else
-			System.out.println(num + " is NOT prime!");
+			System.out.println(this.num + " is NOT prime!");
 	}
 	
 	//Returns true if num is prime
 	private static boolean isPrime(long num) {
-		if(num == 1) return false;
 	    if(num == 2) return true;
-	    if(num % 2 == 0) return false;
+	    if(num == 1 || num % 2 == 0) return false;
 	    for(long i = 3; i * i < num; i += 2)
 	        if (num % i == 0) return false;
 	    return true;
